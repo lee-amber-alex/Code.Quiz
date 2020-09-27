@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=
-    , initial-scale=1.0"
-    />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+  
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -17,9 +13,9 @@
     />
     <link rel="stylesheet" href="stylesheet.css" />
   </head>
-  <body>
-    <nav class="navbar navbar-expand-md p-3 mb-2 bg-secondary text-white">
-      <a class="navbar-brand text-white" href="#">Code Quiz TITLE</a>
+  <body id="bg-img">
+    <nav class="navbar navbar-expand-md p-3 mb-2 text-white">
+      <a class="navbar-brand text-white" href="index.html">Qode Cuiz</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -34,7 +30,7 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto justify-content-end w-100">
           <li class="nav-item active">
-            <a class="nav-link text-white" href="#"
+            <a class="nav-link text-white" href="scores.html"
               >SCORES <span class="sr-only">(current)</span></a
             >
           </li>
@@ -42,9 +38,9 @@
       </div>
     </nav>
     <main>
-      <div class="container-md py-3 h-60 mt-5" style="background-color: white">
+      <div class="container-md py-3 h-60 mt-5 container2" style="background-color: white">
         <header class="border-bottom border-grey">
-          <h1 style="text-align: center">CODE QUIZ TITLE</h1>
+          <h1 style="text-align: center">QODE CUIZ</h1>
           <br />
         </header>
         <h6 class="mt-2" style="text-align: justify">
@@ -57,34 +53,43 @@
           START
         </button>
         <div class="row-md pt-2">
-          <h1 id="timer">00:00</h1>
+          <h1 id="timer">:20</h1>
         </div>
 
         <div class="row-md">
           <div class="form-group form-check col-md-12">
-            <label for="exampleFormControlSelect2"
-              >1) On the periodic table, what element is represented by the letters
-              Na?</label
+            <label id="questions" for="exampleFormControlSelect2"
+              >1) On the periodic table, what element is represented by the
+              letters Na?</label
             >
             <select
+              id="optionsAll"
               multiple
               class="form-control"
               id="exampleFormControlSelect2"
             >
-              <option>a. Magnesium</option>
+              <option id="optionA">a. Magnesium</option>
               <br />
-              <option>b. Nitrogen</option>
+              <option id="optionB">b. Nitrogen</option>
               <br />
-              <option>c. Sodium</option>
+              <option id="optionC">c. Sodium</option>
               <br />
-              <option>d. Neon</option>
+              <option id="optionD">d. Neon</option>
               <br />
             </select>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </main>
-
+    <!-- <script>
+      src = "script.js";
+    </script> -->
+    <!-- <script>
+      src = "third.js";
+    </script> -->
+    <script> src = "forth.js";</script>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -100,8 +105,5 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
-    <script>
-      src = "script.js";
-    </script>
   </body>
 </html>
