@@ -1,29 +1,30 @@
 let startEl = document.getElementById("start");
 let timerEl = document.getElementById("timer");
 let optionsEl = document.querySelectorAll("option");
-let contEl = document.querySelectorAll(".container2");
-let questionsAll = document.getElementById(".questions");
+let questionsAll = document.querySelectorAll("label");
 let optionsABCD = document.getElementById("optionsAll");
 let optionElA = document.getElementById("optionA");
 let optionElB = document.getElementById("optionB");
 let optionElC = document.getElementById("optionC");
 let optionElD = document.getElementById("optionD");
 let buttonNext = document.getElementById("button");
-
+let scores = document.getElementById("scores");
+let modalEl = document.getElementById("modal");
 
 // Set the state
 let timeLeft = 20;
 let score = 0;
 let initialTimer;
 
-// 1. Click start to begin quiz, start timer, reveal first guestion .
+function initialsHere(){
+  modalEl.style.display = "none";
+}
+
+// 1) Click Start Button to start quiz.
+//
+//     1b) Start Button starts timer.
+//       1c) Start again resets timer.
 startEl.addEventListener("click", function () {
-  questionsAll.textContent =
-    "1) On the periodic table, what element is represented by the letters Na?";
-  optionElA.textContent = "a. Magnesium";
-  optionElB.textContent = "b. Nitrogen";
-  optionElC.textContent = "c. Sodium ";
-  optionElD.textContent = "d. Neon";
   clearInterval(initialTimer);
   timeLeft = 20;
   timerEl.textContent = "00:" + timeLeft;
@@ -36,93 +37,23 @@ startEl.addEventListener("click", function () {
     }
   }, 1000);
 });
+ 
+ 
+// 4) All question answered, score recorded.*/
+// FUNCTIONS():
 
-// 2. Click on an option below to answer question.
-optionsEl.forEach(function (element) {
-  element.addEventListener("click", function (event) {
-  if(event.target.matches("#optionC")){
-    optionsAll.style.display = "none";
-      questionsAll.textContent = "WELL DONE!";
-      timerEl.textContent = "00:00";
-      score += timeLeft;
-      clearInterval(initialTimer);
-      timeLeft = 20;
-    } else {
-      timeLeft -= 5;
+
+function handleClick(event){
+  event.preventDefault();
+  if(event.target.matches("select")){
+    console.log(event);
+
   }
-});
 
-buttonNext.addEventListener("click", function () {
-  questionsAll.textContent = "2) What constellation contains the Big Dipper";
-  optionElA.textContent = "a. Ursa Major";
-  optionElB.textContent = "b. Orion";
-  optionElC.textContent = "c. Ursa Minor";
-  optionElD.textContent = "d. Lyra";
-  optionsAll.style.display = "block";
-});
+}
 
-optionsEl.forEach(function (element) {
-  element.addEventListener("click", function (event) {
-    if (event.target.matches("#optionA")) {
-      optionsAll.style.display = "none";
-      questionsAll.textContent = "WELL DONE!";
-      timerEl.textContent = "00:00";
-      score += timeLeft;
-      clearInterval(initialTimer);
-      timeLeft = 20;
-    } else {
-      timeLeft -= 5;
-    }
-  });
-});
-
-buttonNext.addEventListener("click", function () {
-  questionsAll.textContent = "3) What country is the third largest trade partner of the U.S.?";
-  optionElA.textContent = "a. Canada";
-  optionElB.textContent = "b. China";
-  optionElC.textContent = "c. Mexico";
-  optionElD.textContent = "d. Brazil";
-  optionsAll.style.display = "block";
-});
-
-optionsEl.forEach(function (element) {
-  element.addEventListener("click", function (event) {
-    if (event.target.matches("#optionC")) {
-      optionsAll.style.display = "none";
-      questionsAll.textContent = "WELL DONE!";
-      timerEl.textContent = "00:00";
-      score += timeLeft;
-      clearInterval(initialTimer);
-      timeLeft = 20;
-    } else {
-      timeLeft -= 5;
-    }
-  });
-});
-
-buttonNext.addEventListener("click", function () {
-  questionsAll.textContent = "4) Who invented bifocals?";
-  optionElA.textContent = "a. Benjamin Franklin";
-  optionElB.textContent = "b. Thomas Edison";
-  optionElC.textContent = "c. Leo Baekeland";
-  optionElD.textContent = "d. Clarence Birdseye";
-  optionsAll.style.display = "block";
-});
-
-optionsEl.forEach(function (element) {
-  element.addEventListener("click", function (event) {
-    if (event.target.matches("#optionC")) {
-      optionsAll.style.display = "none";
-      questionsAll.textContent = "WELL DONE!";
-      timerEl.textContent = "00:00";
-      score += timeLeft;
-      clearInterval(initialTimer);
-      timeLeft = 20;
-    } else {
-      timeLeft -= 5;
-    }
-  });
-});
+optionsEl.addEventListener("click", handleClick);
+// ______________________________________________________________________
 
 // QUESTIONS:
 // 1) On the periodic table, what element is represented by the letters Na?
@@ -149,13 +80,13 @@ optionsEl.forEach(function (element) {
 // 	c. Leo Baekeland
 // 	d. Clarence Birdseye
 //  -------------------------------------------
-
-// 1) Click Start Button to start quiz.
-// 2) Start button reveals first question.
-// 3) Start Button starts timer.
-// 4) If option is correct, "well done".
-// 5) Next question.
-// 6) Timer restarts
-// 7) If incorrect, time decrement
-// 8) If timer runs out, move to next question
-// 9) All question answered, score recorded.
+// STEPS:
+/*1) Click Start Button to start quiz.
+  a ) Start button reveals first question.
+    b) Start Button starts timer.
+      c) Start again resets timer.
+2) If option is correct, "well done".
+  a) If incorrect, time decrement
+3) Next question.
+  a) If timer runs out, move to next question
+4) All question answered, score recorded.*/
