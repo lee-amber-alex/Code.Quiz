@@ -8,8 +8,6 @@ let optionElB = document.getElementById("optionB");
 let optionElC = document.getElementById("optionC");
 let optionElD = document.getElementById("optionD");
 let buttonNext = document.getElementById("button");
-let scores = document.getElementById("scores");
-let modalEl = document.getElementById("modal");
 
 // Set the state
 let timeLeft = 20;
@@ -36,23 +34,111 @@ startEl.addEventListener("click", function () {
       timerEl.textContent = "00:00";
     }
   }, 1000);
+
+  // 1a ) Start button reveals first question.
+  // 2) If option is correct, "well done".
+    // 2a) If incorrect, time decrement
+  optionsEl.forEach(function (element) {
+    label.textContent =
+      "1) On the periodic table, what element is represented by the letters Na?";
+    optionElA.textContent = "a. Magnesium";
+    optionElB.textContent = "b. Nitrogen";
+    optionElC.textContent = "c. Sodium ";
+    optionElD.textContent = "d. Neon";
+    element.addEventListener("click", function (event) {
+      if (event.target.matches("#optionC")) {
+        optionsAll.style.display = "none";
+        label.textContent = "WELL DONE!";
+        timerEl.textContent = "00:00";
+        score += timeLeft;
+        clearInterval(initialTimer);
+        timeLeft = 20;
+      } else {
+        timeLeft -= 5;
+      }
+      // 3) Next question
+        // 1-2-3a) If timer runs out, move to next question
+      buttonNext.addEventListener("click", function () {
+        label.textContent = "2) What constellation contains the Big Dipper";
+        optionElA.textContent = "a. Ursa Major";
+        optionElB.textContent = "b. Orion";
+        optionElC.textContent = "c. Ursa Minor";
+        optionElD.textContent = "d. Lyra";
+        optionsAll.style.display = "block";
+      });
+    });
+    // Repeat step 2 & 2a.
+        // 1-2-3a) If timer runs out, move to next question
+    optionsEl.forEach(function (element) {
+      element.addEventListener("click", function (event) {
+        if (event.target.matches("#optionA")) {
+          optionsAll.style.display = "none";
+          label.textContent = "WELL DONE!";
+          timerEl.textContent = "00:00";
+          score += timeLeft;
+          clearInterval(initialTimer);
+          timeLeft = 20;
+        } else {
+          timeLeft -= 5;
+        }
+      });
+    });
+    // 3) Next question 
+    // 1-2-3a) If timer runs out, move to next question
+    buttonNext.addEventListener("click", function () {
+      label.textContent =
+        "3) What country is the third largest trade partner of the U.S.?";
+      optionElA.textContent = "a. Canada";
+      optionElB.textContent = "b. China";
+      optionElC.textContent = "c. Mexico";
+      optionElD.textContent = "d. Brazil";
+      optionsAll.style.display = "block";
+    });
+    // Repeat step 2 & 2a.
+    optionsEl.forEach(function (element) {
+      element.addEventListener("click", function (event) {
+        if (event.target.matches("#optionC")) {
+          optionsAll.style.display = "none";
+          label.textContent = "WELL DONE!";
+          timerEl.textContent = "00:00";
+          score += timeLeft;
+          clearInterval(initialTimer);
+          timeLeft = 20;
+        } else {
+          timeLeft -= 5;
+        }
+      });
+    });
+    // 3) Next question 
+    // 1-2-3a) If timer runs out, move to next question
+    buttonNext.addEventListener("click", function () {
+      label.textContent = "4) Who invented bifocals?";
+      optionElA.textContent = "a. Benjamin Franklin";
+      optionElB.textContent = "b. Thomas Edison";
+      optionElC.textContent = "c. Leo Baekeland";
+      optionElD.textContent = "d. Clarence Birdseye";
+      optionsAll.style.display = "block";
+    });
+    // Repeat step 2 & 2a.
+    optionsEl.forEach(function (element) {
+      element.addEventListener("click", function (event) {
+        if (event.target.matches("#optionC")) {
+          optionsAll.style.display = "none";
+          label.textContent = "WELL DONE!";
+          timerEl.textContent = "00:00";
+          score += timeLeft;
+          clearInterval(initialTimer);
+          timeLeft = 20;
+        } else {
+          timeLeft -= 5;
+        }
+      });
+    });
+  });
 });
- 
- 
 // 4) All question answered, score recorded.*/
 // FUNCTIONS():
-
-
-function handleClick(event){
-  event.preventDefault();
-  if(event.target.matches("select")){
-    console.log(event);
-
-  }
-
-}
-
-optionsEl.addEventListener("click", handleClick);
+let question1 = function(){}
 // ______________________________________________________________________
 
 // QUESTIONS:
