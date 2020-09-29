@@ -4,7 +4,7 @@ body {
 }
 
 nav{
-  background-color: #89AB96;
+  background-color: hsla( 251, 185, 104,.5);
 }
 
 html,
@@ -37,12 +37,19 @@ option {
   padding: 5px;
 }
 
+
 .quizContainer{
-  background-image: url(correct.bg.png);
+  background-image: url(./correct.bg.png);
 }
 
 .container2{
 
   background-color: white;
+}
+#button{
+  
+  position: sticky;
 
 }
+
+
