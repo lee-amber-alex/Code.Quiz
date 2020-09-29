@@ -1,47 +1,161 @@
-
 let startEl = document.getElementById("start");
 let timerEl = document.getElementById("timer");
 let optionsEl = document.querySelectorAll("option");
 let contEl = document.querySelectorAll(".container2");
-let questionsAll = document.getElementById("questions");
-let optionElA = document.getElementById("optionA")
-let optionElB = document.getElementById("optionB")
-let optionElC = document.getElementById("optionC")
-let optionElD = document.getElementById("optionD")
-let quesEl = [
-    q1 ="1) On the periodic table, what element is represented by the letters Na?",
-    q2 = "2) What constellation contains the Big Dipper?",
-    q3 = "3) What country is the third largest trade partner of the U.S.?",
-    q4 = "4) Who invented bifocals?",
-    quesAns = "optionA", "optionB", "optionC", "optionD", 
-];
-let quesAns2 = ["optionA", "optionB", "optionC", "optionD"];
+let questionsAll = document.getElementById(".questions");
+let optionsABCD = document.getElementById("optionsAll");
+let optionElA = document.getElementById("optionA");
+let optionElB = document.getElementById("optionB");
+let optionElC = document.getElementById("optionC");
+let optionElD = document.getElementById("optionD");
+let buttonNext = document.getElementById("button");
+
 
 // Set the state
+let timeLeft = 20;
+let score = 0;
+let initialTimer;
 
-let timeLeft = 20 
+// 1. Click start to begin quiz, start timer, reveal first guestion .
+startEl.addEventListener("click", function () {
+  questionsAll.textContent =
+    "1) On the periodic table, what element is represented by the letters Na?";
+  optionElA.textContent = "a. Magnesium";
+  optionElB.textContent = "b. Nitrogen";
+  optionElC.textContent = "c. Sodium ";
+  optionElD.textContent = "d. Neon";
+  clearInterval(initialTimer);
+  timeLeft = 20;
+  timerEl.textContent = "00:" + timeLeft;
+  initialTimer = setInterval(function () {
+    timerEl.textContent = "00:" + timeLeft;
+    timeLeft--;
+    if (timeLeft <= 0) {
+      clearInterval(initialTimer);
+      timerEl.textContent = "00:00";
+    }
+  }, 1000);
+});
 
-// 1. Click start to begin quiz and start timer .
-            startEl.addEventListener("click", function(){
-              let initialTimer = setInterval(function(){
-                timerEl.textContent = "00:" + timeLeft;
-                timeLeft--;
-                if(timeLeft === -1){
-                    clearInterval(initialTimer);
-                    timerEl.textContent = "00:00";
-                }
-              }, 1000);
-              console.log(startEl);
-            });
+// 2. Click on an option below to answer question.
+optionsEl.forEach(function (element) {
+  element.addEventListener("click", function (event) {
+  if(event.target.matches("#optionC")){
+    optionsAll.style.display = "none";
+      questionsAll.textContent = "WELL DONE!";
+      timerEl.textContent = "00:00";
+      score += timeLeft;
+      clearInterval(initialTimer);
+      timeLeft = 20;
+    } else {
+      timeLeft -= 5;
+  }
+});
 
+buttonNext.addEventListener("click", function () {
+  questionsAll.textContent = "2) What constellation contains the Big Dipper";
+  optionElA.textContent = "a. Ursa Major";
+  optionElB.textContent = "b. Orion";
+  optionElC.textContent = "c. Ursa Minor";
+  optionElD.textContent = "d. Lyra";
+  optionsAll.style.display = "block";
+});
 
-// Handlers:
+optionsEl.forEach(function (element) {
+  element.addEventListener("click", function (event) {
+    if (event.target.matches("#optionA")) {
+      optionsAll.style.display = "none";
+      questionsAll.textContent = "WELL DONE!";
+      timerEl.textContent = "00:00";
+      score += timeLeft;
+      clearInterval(initialTimer);
+      timeLeft = 20;
+    } else {
+      timeLeft -= 5;
+    }
+  });
+});
 
-// let initialTimer = setInterval(function(){
-//   timerEl.textContent = timeLeft;
-//   timeLeft--;
-//   if(timerLeft === 0){
-//       clearInterval(initialTimer);
-//   }
-// }, 1000);
+buttonNext.addEventListener("click", function () {
+  questionsAll.textContent = "3) What country is the third largest trade partner of the U.S.?";
+  optionElA.textContent = "a. Canada";
+  optionElB.textContent = "b. China";
+  optionElC.textContent = "c. Mexico";
+  optionElD.textContent = "d. Brazil";
+  optionsAll.style.display = "block";
+});
 
+optionsEl.forEach(function (element) {
+  element.addEventListener("click", function (event) {
+    if (event.target.matches("#optionC")) {
+      optionsAll.style.display = "none";
+      questionsAll.textContent = "WELL DONE!";
+      timerEl.textContent = "00:00";
+      score += timeLeft;
+      clearInterval(initialTimer);
+      timeLeft = 20;
+    } else {
+      timeLeft -= 5;
+    }
+  });
+});
+
+buttonNext.addEventListener("click", function () {
+  questionsAll.textContent = "4) Who invented bifocals?";
+  optionElA.textContent = "a. Benjamin Franklin";
+  optionElB.textContent = "b. Thomas Edison";
+  optionElC.textContent = "c. Leo Baekeland";
+  optionElD.textContent = "d. Clarence Birdseye";
+  optionsAll.style.display = "block";
+});
+
+optionsEl.forEach(function (element) {
+  element.addEventListener("click", function (event) {
+    if (event.target.matches("#optionC")) {
+      optionsAll.style.display = "none";
+      questionsAll.textContent = "WELL DONE!";
+      timerEl.textContent = "00:00";
+      score += timeLeft;
+      clearInterval(initialTimer);
+      timeLeft = 20;
+    } else {
+      timeLeft -= 5;
+    }
+  });
+});
+
+// QUESTIONS:
+// 1) On the periodic table, what element is represented by the letters Na?
+// a. Magnesium
+// b. Nitrogen
+// c. Sodium - correct
+// d. Neon
+
+// 2) What constellation contains the Big Dipper?
+// 	a. Ursa Major - correct
+// 	b. Orion
+// 	c. Ursa Minor
+// 	d. Lyra
+
+// 3) What country is the third largest trade partner of the U.S.?
+// 	a. Canada
+// 	b. China
+// 	c. Mexico - correct
+// 	d. Brazil
+
+// 4) Who invented bifocals?
+// 	a. Benjamin Franklin - correct
+// 	b. Thomas Edison
+// 	c. Leo Baekeland
+// 	d. Clarence Birdseye
+//  -------------------------------------------
+
+// 1) Click Start Button to start quiz.
+// 2) Start button reveals first question.
+// 3) Start Button starts timer.
+// 4) If option is correct, "well done".
+// 5) Next question.
+// 6) Timer restarts
+// 7) If incorrect, time decrement
+// 8) If timer runs out, move to next question
+// 9) All question answered, score recorded.
