@@ -14,13 +14,13 @@ main {
 }
 
 #bg-img {
-  background-image: url(bg.3.png);
+  background-image: url(img/bg.3.png);
   
 }
 
 #bg-img2{
 
-  background-image: url(bg.score.png);
+  background-image: url(img/bg.score.png);
   width: 100%;
   height: 100%;
 }
@@ -37,10 +37,6 @@ option {
   padding: 5px;
 }
 
-
-.quizContainer{
-  background-image: url(./correct.bg.png);
-}
 
 .container2{
 
