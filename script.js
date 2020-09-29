@@ -8,15 +8,18 @@ let optionElB = document.getElementById("optionB");
 let optionElC = document.getElementById("optionC");
 let optionElD = document.getElementById("optionD");
 let buttonNext = document.getElementById("button");
+let modalEl = document.getElementById("modal");
 
 // Set the state
 let timeLeft = 20;
 let score = 0;
 let initialTimer;
 
-function initialsHere(){
+let initials = function initialsHere(){
   modalEl.style.display = "none";
+  
 }
+
 
 // 1) Click Start Button to start quiz.
 //
