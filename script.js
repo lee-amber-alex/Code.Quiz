@@ -38,6 +38,7 @@ startEl.addEventListener("click", function () {
   // 1a ) Start button reveals first question.
   // 2) If option is correct, "well done".
     // 2a) If incorrect, time decrement
+    // *****QUESTION 1*****
   optionsEl.forEach(function (element) {
     label.textContent =
       "1) On the periodic table, what element is represented by the letters Na?";
@@ -58,6 +59,7 @@ startEl.addEventListener("click", function () {
       }
       // 3) Next question
         // 1-2-3a) If timer runs out, move to next question
+        // *****QUESTION 2*****
       buttonNext.addEventListener("click", function () {
         label.textContent = "2) What constellation contains the Big Dipper";
         optionElA.textContent = "a. Ursa Major";
@@ -85,6 +87,7 @@ startEl.addEventListener("click", function () {
     });
     // 3) Next question 
     // 1-2-3a) If timer runs out, move to next question
+    // *****QUESTION 3*****
     buttonNext.addEventListener("click", function () {
       label.textContent =
         "3) What country is the third largest trade partner of the U.S.?";
@@ -111,6 +114,7 @@ startEl.addEventListener("click", function () {
     });
     // 3) Next question 
     // 1-2-3a) If timer runs out, move to next question
+    // *****QUESTION 4*****
     buttonNext.addEventListener("click", function () {
       label.textContent = "4) Who invented bifocals?";
       optionElA.textContent = "a. Benjamin Franklin";
