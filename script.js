@@ -40,10 +40,10 @@ startEl.addEventListener("click", function () {
   optionsEl.forEach(function (element) {
     label.textContent =
       "1)	What is the definition of “HTML”?";
-    optionElA.textContent = "a. Used exactly like CSS,";
+    optionElA.textContent = "a. Used exactly like CSS.";
     optionElB.textContent = "b. Hypertext Markup Language.";
     optionElC.textContent = "c. Used to style a web page. ";
-    optionElD.textContent = "d. Hyper Tracing Max Language";
+    optionElD.textContent = "d. Hyper Tracing Max Language.";
     element.addEventListener("click", function (event) {
       if (event.target.matches("#optionC")) {
         optionsAll.style.display = "none";
