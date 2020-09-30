@@ -15,7 +15,6 @@ let timeLeft = 20;
 let score = 0;
 let initialTimer;
 
-
 // 1) Click Start Button to start quiz.
 //
 //     1b) Start Button starts timer.
@@ -38,8 +37,7 @@ startEl.addEventListener("click", function () {
   // 2a) If incorrect, time decrement
   // *****QUESTION 1*****
   optionsEl.forEach(function (element) {
-    label.textContent =
-      "1)	What is the definition of “HTML”?";
+    label.textContent = "1)	What is the definition of “HTML”?";
     optionElA.textContent = "a. Used exactly like CSS.";
     optionElB.textContent = "b. Hypertext Markup Language.";
     optionElC.textContent = "c. Used to style a web page. ";
@@ -87,8 +85,7 @@ startEl.addEventListener("click", function () {
     // 1-2-3a) If timer runs out, move to next question
     // *****QUESTION 3*****
     buttonNext.addEventListener("click", function () {
-      label.textContent =
-        "3) Which tag is used to create a paragraph in HTML?"
+      label.textContent = "3) Which tag is used to create a paragraph in HTML?";
       optionElB.textContent = "b. <h1>";
       optionElC.textContent = "c. <div>";
       optionElD.textContent = "d. <p>";
@@ -138,54 +135,5 @@ startEl.addEventListener("click", function () {
   });
 });
 
-/*  AskBSC suggestions:
-create an array of objects with question, options array and correct answer
-create a variable counter initialized with 0
-function called display question in which,
-create an element "p" and add textContent = question[counter].question
-write for loop to loop over option from questions array for current question we're displaying on screem
-create new lement button and text content will be each option value and also add data-answer attribute and specific class to all options
-
-
-
-*/
 // 4) All question answered, score recorded.*/
 // FUNCTIONS():
-
-// ______________________________________________________________________
-
-// QUESTIONS:
-// 1) On the periodic table, what element is represented by the letters Na?
-// a. Magnesium
-// b. Nitrogen
-// c. Sodium - correct
-// d. Neon
-
-// 2) What constellation contains the Big Dipper?
-// 	a. Ursa Major - correct
-// 	b. Orion
-// 	c. Ursa Minor
-// 	d. Lyra
-
-// 3) What country is the third largest trade partner of the U.S.?
-// 	a. Canada
-// 	b. China
-// 	c. Mexico - correct
-// 	d. Brazil
-
-// 4) Who invented bifocals?
-// 	a. Benjamin Franklin - correct
-// 	b. Thomas Edison
-// 	c. Leo Baekeland
-// 	d. Clarence Birdseye
-//  -------------------------------------------
-// STEPS:
-/*1) Click Start Button to start quiz.
-  a ) Start button reveals first question.
-    b) Start Button starts timer.
-      c) Start again resets timer.
-2) If option is correct, "well done".
-  a) If incorrect, time decrement
-3) Next question.
-  a) If timer runs out, move to next question
-4) All question answered, score recorded.*/
