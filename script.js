@@ -15,11 +15,6 @@ let timeLeft = 20;
 let score = 0;
 let initialTimer;
 
-let initials = function initialsHere(){
-  modalEl.style.display = "none";
-  
-}
-
 
 // 1) Click Start Button to start quiz.
 //
@@ -40,8 +35,8 @@ startEl.addEventListener("click", function () {
 
   // 1a ) Start button reveals first question.
   // 2) If option is correct, "well done".
-    // 2a) If incorrect, time decrement
-    // *****QUESTION 1*****
+  // 2a) If incorrect, time decrement
+  // *****QUESTION 1*****
   optionsEl.forEach(function (element) {
     label.textContent =
       "1) On the periodic table, what element is represented by the letters Na?";
@@ -61,8 +56,8 @@ startEl.addEventListener("click", function () {
         timeLeft -= 5;
       }
       // 3) Next question
-        // 1-2-3a) If timer runs out, move to next question
-        // *****QUESTION 2*****
+      // 1-2-3a) If timer runs out, move to next question
+      // *****QUESTION 2*****
       buttonNext.addEventListener("click", function () {
         label.textContent = "2) What constellation contains the Big Dipper";
         optionElA.textContent = "a. Ursa Major";
@@ -73,7 +68,7 @@ startEl.addEventListener("click", function () {
       });
     });
     // Repeat step 2 & 2a.
-        // 1-2-3a) If timer runs out, move to next question
+    // 1-2-3a) If timer runs out, move to next question
     optionsEl.forEach(function (element) {
       element.addEventListener("click", function (event) {
         if (event.target.matches("#optionA")) {
@@ -88,7 +83,7 @@ startEl.addEventListener("click", function () {
         }
       });
     });
-    // 3) Next question 
+    // 3) Next question
     // 1-2-3a) If timer runs out, move to next question
     // *****QUESTION 3*****
     buttonNext.addEventListener("click", function () {
@@ -115,7 +110,7 @@ startEl.addEventListener("click", function () {
         }
       });
     });
-    // 3) Next question 
+    // 3) Next question
     // 1-2-3a) If timer runs out, move to next question
     // *****QUESTION 4*****
     buttonNext.addEventListener("click", function () {
@@ -143,9 +138,21 @@ startEl.addEventListener("click", function () {
     });
   });
 });
+
+/*  AskBSC suggestions:
+create an array of objects with question, options array and correct answer
+create a variable counter initialized with 0
+function called display question in which,
+create an element "p" and add textContent = question[counter].question
+write for loop to loop over option from questions array for current question we're displaying on screem
+create new lement button and text content will be each option value and also add data-answer attribute and specific class to all options
+
+
+
+*/
 // 4) All question answered, score recorded.*/
 // FUNCTIONS():
-let question1 = function(){}
+
 // ______________________________________________________________________
 
 // QUESTIONS:
