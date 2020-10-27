@@ -1,25 +1,46 @@
 let startEl = document.getElementById("start");
 let timerEl = document.getElementById("timer");
-let optionsEl = document.querySelectorAll("option");
-let questionsAll = document.querySelectorAll("label");
-let optionsABCD = document.getElementById("optionsAll");
-let optionElA = document.getElementById("optionA");
-let optionElB = document.getElementById("optionB");
-let optionElC = document.getElementById("optionC");
-let optionElD = document.getElementById("optionD");
-let buttonNext = document.getElementById("button");
-let modalEl = document.getElementById("modal");
+let questionsEl = document.getElementById("questionsArea");
+let initialsEl = document.getElementById("initials");
+let scoresEl = document.getElementById("scores");
+let initialsButton = document.getElementById("initialButton");
+
+let questions = [
+  {
+    ques: "1)	What is the correct tag to bold an element?",
+    answer: ["a. Test ", "b. Test", "c. Test ", "d. Test "],
+    correct: 3,
+  },
+
+  {
+    ques: "2) What is the correct tag to create a paragraph?",
+    answer: ["a. Test ", "b. Test ", "c. Test ", "d. Test "],
+    correct: "a",
+  },
+
+  {
+    ques: "3) What language is used to style a webpage?",
+    answer: ["a. HTML", "b. CSS", "c. Java", "d. Javascript"],
+    correct: "b",
+  },
+
+  {
+    ques: "4) Select a semantic element below.",
+    answer: ["a. Test ", " b. Test ", "c. Test "],
+    correct: "b",
+  },
+];
 
 // Set the state
 let timeLeft = 20;
 let score = 0;
 let initialTimer;
-
-// 1) Click Start Button to start quiz.
-//
-//     1b) Start Button starts timer.
-//       1c) Start again resets timer.
+let i = 0;
+// questionsEl.style.display = "none"; 
+// 1. Click button to start timer:
 startEl.addEventListener("click", function () {
+  displayQuestions();
+  // initialsHere();
   clearInterval(initialTimer);
   timeLeft = 20;
   timerEl.textContent = "00:" + timeLeft;
@@ -31,109 +52,86 @@ startEl.addEventListener("click", function () {
       timerEl.textContent = "00:00";
     }
   }, 1000);
-
-  // 1a ) Start button reveals first question.
-  // 2) If option is correct, "well done".
-  // 2a) If incorrect, time decrement
-  // *****QUESTION 1*****
-  optionsEl.forEach(function (element) {
-    label.textContent = "1)	What is the definition of “HTML”?";
-    optionElA.textContent = "a. Used exactly like CSS.";
-    optionElB.textContent = "b. Hypertext Markup Language.";
-    optionElC.textContent = "c. Used to style a web page. ";
-    optionElD.textContent = "d. Hyper Tracing Max Language.";
-    element.addEventListener("click", function (event) {
-      if (event.target.matches("#optionC")) {
-        optionsAll.style.display = "none";
-        label.textContent = "WELL DONE!";
-        timerEl.textContent = "00:00";
-        score += timeLeft;
-        clearInterval(initialTimer);
-        timeLeft = 20;
-      } else {
-        timeLeft -= 5;
-      }
-      // 3) Next question
-      // 1-2-3a) If timer runs out, move to next question
-      // *****QUESTION 2*****
-      buttonNext.addEventListener("click", function () {
-        label.textContent = "2) What are semantic tags used for?";
-        optionElA.textContent = "a. Used to bold content.";
-        optionElB.textContent = "b. Used to create a new element.";
-        optionElC.textContent = "c. Used to create more accessibility.";
-        optionElD.textContent = "d. Does not exist.";
-        optionsAll.style.display = "block";
-      });
-    });
-    // Repeat step 2 & 2a.
-    // 1-2-3a) If timer runs out, move to next question
-    optionsEl.forEach(function (element) {
-      element.addEventListener("click", function (event) {
-        if (event.target.matches("#optionA")) {
-          optionsAll.style.display = "none";
-          label.textContent = "WELL DONE!";
-          timerEl.textContent = "00:00";
-          score += timeLeft;
-          clearInterval(initialTimer);
-          timeLeft = 20;
-        } else {
-          timeLeft -= 5;
-        }
-      });
-    });
-    // 3) Next question
-    // 1-2-3a) If timer runs out, move to next question
-    // *****QUESTION 3*****
-    buttonNext.addEventListener("click", function () {
-      label.textContent = "3) Which tag is used to create a paragraph in HTML?";
-      optionElB.textContent = "b. <h1>";
-      optionElC.textContent = "c. <div>";
-      optionElD.textContent = "d. <p>";
-      optionsAll.style.display = "<br>";
-    });
-    // Repeat step 2 & 2a.
-    optionsEl.forEach(function (element) {
-      element.addEventListener("click", function (event) {
-        if (event.target.matches("#optionC")) {
-          optionsAll.style.display = "none";
-          label.textContent = "WELL DONE!";
-          timerEl.textContent = "00:00";
-          score += timeLeft;
-          clearInterval(initialTimer);
-          timeLeft = 20;
-        } else {
-          timeLeft -= 5;
-        }
-      });
-    });
-    // 3) Next question
-    // 1-2-3a) If timer runs out, move to next question
-    // *****QUESTION 4*****
-    buttonNext.addEventListener("click", function () {
-      label.textContent = "4) Which is the best tag for a Header?";
-      optionElA.textContent = "a. <h1>";
-      optionElB.textContent = "b. <h6>";
-      optionElC.textContent = "c. <h3>";
-      optionElD.textContent = "d. <h4>";
-      optionsAll.style.display = "block";
-    });
-    // Repeat step 2 & 2a.
-    optionsEl.forEach(function (element) {
-      element.addEventListener("click", function (event) {
-        if (event.target.matches("#optionC")) {
-          optionsAll.style.display = "none";
-          label.textContent = "WELL DONE!";
-          timerEl.textContent = "00:00";
-          score += timeLeft;
-          clearInterval(initialTimer);
-          timeLeft = 20;
-        } else {
-          timeLeft -= 5;
-        }
-      });
-    });
-  });
 });
 
-// 4) All question answered, score recorded.*/
-// FUNCTIONS():
+
+function displayQuestions() {
+  // for (let i = 0; i < questions.length; i++) {
+  let current = questions[i];
+  display1(current);
+  console.log(current);
+  // }
+  
+};
+
+
+function display1(question) {
+  questionsEl.innerHTML = "";
+
+  let questionH4 = document.createElement("h4");
+  questionH4.innerHTML = question.ques;
+  questionsEl.appendChild(questionH4);
+
+  for (let j = 0; j < question.answer.length; j++) {
+    let answerButton = document.createElement("button");
+    answerButton.classList.add("answer");
+    answerButton.innerHTML = question.answer[j];
+    answerButton.addEventListener("click", function (event) {
+      console.log(event.target);
+      console.log(question.answer[3]);
+      if(event.target.innerHTML === question.answer.correct){
+        questionH4.innerHTML = "WELL DONE!";
+        i+= 1;
+        console.log(i);
+
+      } else{
+        timeLeft -= 5
+      }
+     
+     
+     
+    });
+
+    questionsEl.appendChild(answerButton);
+  };
+};
+
+// 1a. Start timer also displays first question:
+
+// TO BE USED______________________________
+// initialsButton.addEventListener("click", function(event){
+//   event.preventDefault();
+//   var initials = document.querySelector("#initials").value;
+//   if(initialsEl === ""){
+//   displayMessage("Please enter your initials.");
+//  localStorage.setItem("Initials", initialsEl);
+//  renderInitials();
+// }
+// })
+
+// // FUNCTIONS
+// function renderInitials(){}
+
+// localStorage.setItem("Scores", score);
+// var initialsFinal = localStorage.getItem("Initials");
+// var scoresFinal = localStorage.getItem("Scores");
+
+/*  AskBSC suggestions:
+create an array of objects with question, options array and correct answer
+create a variable counter initialized with 0
+function called display question in which,
+create an element "p" and add textContent = question[counter].question
+write for loop to loop over option from questions array for current question we're displaying on screem
+create new lement button and text content will be each option value and also add data-answer attribute and specific class to all options
+
+
+// STEPS:
+/*1) Click Start Button to start quiz.
+  a ) Start button reveals first question.
+    b) Start Button starts timer.
+      c) Start again resets timer.
+2) If option is correct, "well done".
+  a) If incorrect, time decrement
+3) Next question.
+  a) If timer runs out, move to next question
+4) All question answered, score recorded.*/
