@@ -6,7 +6,7 @@
      
 ## Description
 
-The purpose of this project was to create an example Coding Assessment that a full-stack web developer might encounter during the interview process and to experience the intricacies involved with designing and coding an online quiz application.
+The purpose of this project was to create an example Coding Assessment that a full-stack web developer might encounter during the interview process and to experience the intricacies involved with designing and coding an online quiz application. Technologies used: HTML, CSS, Bootstrap.
 
 ## Table of Contents
  
